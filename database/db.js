@@ -14,7 +14,7 @@ const sequelize = new Sequelize('QWzwOQ2ggF', 'QWzwOQ2ggF', '8XV7nrddnN', {
 const Users = UserModel(sequelize, Sequelize);
 const Contactos = ContactModel(sequelize, Sequelize);
 
-// Forzamos que en el caso de no haber una tabla la cree.
+// Forzamos que en el caso de no haber una tabla la cree y si ya esta creada se sincroniza.
 sequelize.sync({ force: false })
     .then(() => {
         console.log('Tabla sincronizadas')

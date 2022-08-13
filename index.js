@@ -1,10 +1,14 @@
 const express = require('express');
 const bodyParser = require ('body-parser');
+const cors = require('cors');
 
 // import del manejo de rutas
 const apiRouter = require('./routes/api');
 
 const app = express();
+
+// Utilizamos cors para recibir informacion del front end
+app.use(cors());
 
 // traemos la db para su utilizacion
 require ('./database/db');

@@ -5,7 +5,7 @@ const router = require('express').Router();
 const apiContactRouter = require('./apis/contact');
 const apiUserRouter = require('./apis/users');
 
-// aclaramos el gestor de ruta maneja la informacion 
+// aclaramos cual de los gestores de rutas maneja la informacion recibida
 router.use('/contact', apiContactRouter);
 router.use('/users', apiUserRouter);
 
