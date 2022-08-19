@@ -5,10 +5,14 @@ const router = require('express').Router();
 const { Contactos } = require('../../database/db');
 
 // Metodo GET y que obtenemos al realizar la llamada
-router.get('/', async(req, res) => {
+router.get('/:userId', async(req, res) => {
     //  IMPORTANTE
     // agregar un filto para que busque los contactos del usuario logueado
-    const  agendaCompleta = await Contactos.findAll();
+    const  agendaCompleta = await Contactos.findAll({
+        where: {
+            userId: req.params.userId
+        }
+    });
     res.json(agendaCompleta)
 });
 

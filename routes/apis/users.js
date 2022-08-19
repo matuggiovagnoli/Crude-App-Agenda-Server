@@ -16,11 +16,14 @@ router.post('/register', async (req, res) => {
 
 // Metodo post para login del usuario
 router.post('/login', async (req,res) => {
+    // Identificamos que el mail ingresado este en la db de user
     const user = await Users.findOne({ where: { email:req.body.email } });
     if (user) {
+        // Desencriptamos la contraseña para compararla con la ingresada
         const passwordCheck = bcrypt.compareSync(req.body.contraseña, user.contraseña);
         if (passwordCheck) {
-            res.json({ success: 'Bienvenido ya pudiste logear' })
+            // Si todo es correcto pasamos el objeto user al front
+            res.json( user )
         } else {
             res.json({ error: 'Usuario y/o contraseña Incorrecta!' })
         }

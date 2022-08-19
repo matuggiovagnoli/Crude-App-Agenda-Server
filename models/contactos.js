@@ -1,4 +1,4 @@
-// Le damos las caracteristicas de las columnas oara crear una tabla
+// Le damos las caracteristicas de las columnas para crear una tabla
 module.exports = (sequelize, type) => {
     return sequelize.define('contactos', {
         id: {
